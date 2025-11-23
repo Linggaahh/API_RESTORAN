@@ -1,7 +1,7 @@
 package model
 
 type User struct {
-	UserID   int    `json:"user_id" binding:"required"`
+	UserID   int    `json:"user_id"`
 	Email    string `json:"email" binding:"required"`
 	Password string `json:"password" binding:"required"`
 	Username string `json:"username" binding:"required"`
@@ -11,7 +11,7 @@ type User struct {
 }
 
 type Produk struct {
-	ProdukID   int    `json:"produk_id" binding:"required"`
+	ProdukID   int    `json:"produk_id"`
 	NamaProduk string `json:"nama_produk" binding:"required"`
 	Deskripsi  string `json:"deskripsi" binding:"required"`
 	Stock      int    `json:"stock" binding:"required"`
@@ -20,7 +20,7 @@ type Produk struct {
 }
 
 type Pesanan struct {
-	PesananID   int    `json:"pesanan_id" binding:"required"`
+	PesananID   int    `json:"pesanan_id"`
 	UserID      int    `json:"user_id" binding:"required"`
 	PesananDate string `json:"pesanan_date" binding:"required"`
 	Status      string `json:"status" binding:"required"`
@@ -28,7 +28,7 @@ type Pesanan struct {
 }
 
 type DetailPesanan struct {
-	DetailID    int `json:"detail_id" binding:"required"`
+	DetailID    int `json:"detail_id"`
 	PesananID   int `json:"pesanan_id" binding:"required"`
 	ProdukID    int `json:"produk_id" binding:"required"`
 	JumlahOrder int `json:"jumlah_order" binding:"required"`
@@ -36,13 +36,13 @@ type DetailPesanan struct {
 }
 
 type Cart struct {
-	Cart_id   int `json:"cart_id" binding:"required"`
+	Cart_id   int `json:"cart_id"`
 	User_id   int `json:"user_id" binding:"required"`
 	Produk_id int `json:"produk_id" binding:"required"`
 	Quantity  int `json:"quantity" binding:"required"`
 }
 
 type LoginRequest struct {
-	Email    string `json:"email" binding:"required"`
+	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 }

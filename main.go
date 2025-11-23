@@ -3,7 +3,7 @@ package main
 import (
 	"api_resto/config"
 	"api_resto/controller"
-
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,7 +11,7 @@ func main() {
 	config.Konek()
 
 	r := gin.Default()
-
+	r.Use(cors.Default())
 	//user routes
 	r.GET("/users", controller.GetAllUsers)
 	r.GET("/users/:id", controller.GetUserByID)

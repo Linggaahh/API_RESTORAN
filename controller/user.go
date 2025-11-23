@@ -144,7 +144,7 @@ func Login(c *gin.Context) {
 	err := config.DB.QueryRow(`
 		SELECT user_id, email, password, username, telp, role, image
 		FROM user WHERE email = ? AND password = ?`,
-		req.Email, req.Password,
+		req.Username, req.Password,
 	).Scan(
 		&u.UserID,
 		&u.Email,
