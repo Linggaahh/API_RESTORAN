@@ -15,7 +15,7 @@ func main() {
 	//user routes
 	r.GET("/users", controller.GetAllUsers)
 	r.GET("/users/:id", controller.GetUserByID)
-	r.POST("/users", controller.CreateUser)
+	r.POST("/register", controller.CreateUser)
 	r.PUT("/users/:id", controller.UpdateUser)
 	r.DELETE("/users/:id", controller.DeleteUser)
 	r.POST("/login", controller.Login)
@@ -48,5 +48,8 @@ func main() {
 	r.PUT("/carts/:id", controller.UpdateCart)
 	r.DELETE("/carts/:id", controller.DeleteCart)
 
-	r.Run(":8000")
+
+	
+	r.Run("0.0.0.0:8000")
+
 }
