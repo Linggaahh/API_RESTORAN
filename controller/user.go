@@ -135,7 +135,7 @@ func Login(c *gin.Context) {
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"status": 0,
-			"error":  "Email dan Password wajib diisi",
+			"error":  "Username dan Password wajib diisi",
 		})
 		return
 	}
@@ -143,7 +143,7 @@ func Login(c *gin.Context) {
 	var u model.User
 	err := config.DB.QueryRow(`
 		SELECT user_id, email, password, username, telp, role, image
-		FROM user WHERE email = ? AND password = ?`,
+		FROM user WHERE username = ? AND password = ?`,
 		req.Username, req.Password,
 	).Scan(
 		&u.UserID,
@@ -158,7 +158,7 @@ func Login(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"status": 0,
-			"error":  "Email atau Password salah",
+			"error":  "Username atau Password salah",
 		})
 		return
 	}
